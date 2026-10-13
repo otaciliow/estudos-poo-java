@@ -6,7 +6,8 @@ public class ServicoDeEmprestimo {
             leitor.adicionarLivro(livro);
             System.out.println("Livro " + livro.getTitulo() + " emprestado para " + leitor.getNome());
         } else {
-            System.out.println("Livro já está emprestado para " + livro.getLeitorAtual().getNome());
+            System.out.println("Erro ao emprestar o livro " + livro.getTitulo() + " para " + leitor.getNome() + ":");
+            System.out.println("- Livro já está emprestado para " + livro.getLeitorAtual().getNome());
         }
     }
 }
