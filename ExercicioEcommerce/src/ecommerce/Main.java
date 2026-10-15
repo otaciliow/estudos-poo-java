@@ -1,6 +1,7 @@
 package ecommerce;
 
 import java.util.ArrayList;
+import java.text.DecimalFormat;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,10 +17,12 @@ public class Main {
         pedido.adicionarProduto(produto2);
         pedido.adicionarProduto(produto3);
 
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+
         System.out.println("====== Resumo do pedido ======");
         for (Produto p: pedido.getProdutos()) {
-            System.out.println("Item: " + p.getNome() + " | Valor (com frete): " + p.calcularPrecoFinal());
+            System.out.println("Item: " + p.getNome() + " | Valor (com frete): R$ " + df.format(p.calcularPrecoFinal()));
         }
-        System.out.println("\nTotal do Pedido: " + pedido.calcularTotalPedido());
+        System.out.println("\nTotal do Pedido: R$ " + df.format(pedido.calcularTotalPedido()));
     }
 }
