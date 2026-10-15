@@ -32,7 +32,7 @@ public class ProdutoFisico extends Produto {
 
     @Override
     public double calcularPrecoFinal() {
-        double precoFinal = (getPreco() + getTaxaFrete() + getPeso());
-        return precoFinal;
+        double taxaPeso = (getPeso() > 1.0) ? ((getPeso() - 1.0) * 2.00) : 0.0;
+        return (getPreco() + getTaxaFrete() + taxaPeso);
     }
 }
